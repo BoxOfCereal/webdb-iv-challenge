@@ -10,3 +10,7 @@ db.getDishes().then(dishes => {
 db.getDish(1).then(dish => {
 	console.log(dish);
 });
+
+db.getRecipes().then(recipes => {
+	console.log(recipes);
+});

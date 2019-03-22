@@ -17,5 +17,11 @@ module.exports = {
 			.from("dishes")
 			.where({ "dishes.id": id })
 			.innerJoin("recipes", "recipes.dish_id", "dishes.id");
+	},
+	getRecipes: () => {
+		return db
+			.select("recipe_name", "dish_name")
+			.from("recipes")
+			.innerJoin("dishes", "recipes.dish_id", "dishes.id");
 	}
 };
