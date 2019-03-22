@@ -10,5 +10,12 @@ module.exports = {
 		return db("dishes")
 			.insert(dish)
 			.then(ids => ids[0]);
+	},
+	getDish: id => {
+		return db
+			.select("dish_name", "recipe_name")
+			.from("dishes")
+			.where({ "dishes.id": id })
+			.innerJoin("recipes", "recipes.dish_id", "dishes.id");
 	}
 };
